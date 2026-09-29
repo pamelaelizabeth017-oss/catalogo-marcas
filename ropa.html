@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Ropa</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+/* CONTENEDOR */
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETAS */
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN CONOCER */
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* FONDO DEL MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10,25,40,0.72);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+/* VENTANA */
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X */
+.x-cerrar {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO MODAL */
+.modal-contenido h2 {
+    text-align: center;
+
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #999999;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* CERRAR */
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+    <div class="encabezado">
+
+        <h1>ROPA</h1>
+
+        <div class="linea"></div>
+
+        <p>
+            Identidad visual de marcas reconocidas del sector de la moda.
+        </p>
+
+    </div>
+
+
+    <div class="marcas">
+
+
+        <!-- ZARA -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/zara.png" alt="Zara">
+            </div>
+
+            <h3>Zara</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'ZARA',
+            '1975',
+            'España',
+            'Amancio Ortega y Rosalía Mera',
+            'Zara ha utilizado principalmente su nombre como elemento visual. A lo largo del tiempo modificó la tipografía y el espaciado entre sus letras. En su identidad más reciente las letras aparecen más estilizadas y próximas entre sí.',
+            'Su identidad está construida principalmente mediante un logotipo tipográfico. El nombre ZARA funciona como el principal elemento de reconocimiento de la marca.',
+            'Negro y blanco.',
+            'Comunica elegancia, moda contemporánea, simplicidad y sofisticación.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- H&M -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/hm.png" alt="H&M">
+            </div>
+
+            <h3>H&M</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'H&M',
+            '1947',
+            'Suecia',
+            'Erling Persson',
+            'La empresa comenzó con el nombre Hennes. Después de adquirir Mauritz Widforss pasó a llamarse Hennes & Mauritz, que posteriormente se simplificó visualmente como H&M.',
+            'Su identidad se construye mediante las letras H y M unidas por el símbolo &. Su escritura tiene un aspecto informal y dinámico que facilita su reconocimiento.',
+            'Rojo y blanco.',
+            'Comunica moda accesible, juventud, dinamismo y cercanía.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- LEVI'S -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/levis.png" alt="Levi's">
+            </div>
+
+            <h3>Levi's</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'LEVI´S',
+            '1853',
+            'Estados Unidos',
+            'Levi Strauss',
+            'Levi´s ha utilizado diferentes elementos gráficos a lo largo de su historia. Entre los más reconocibles están la ilustración de los dos caballos y la forma roja conocida como Batwing que acompaña actualmente al nombre de la marca.',
+            'Su identidad actual combina el nombre Levi´s con una forma gráfica roja característica. Esta estructura permite reconocer la marca rápidamente en prendas, etiquetas y publicidad.',
+            'Rojo, blanco y azul.',
+            'Comunica autenticidad, tradición, juventud y una fuerte relación con la cultura del denim.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- GUCCI -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/gucci.png" alt="Gucci">
+            </div>
+
+            <h3>Gucci</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'GUCCI',
+            '1921',
+            'Italia',
+            'Guccio Gucci',
+            'La identidad de Gucci está vinculada al nombre de su fundador. Uno de sus símbolos más reconocidos está formado por dos letras G entrelazadas, relacionadas con las iniciales de Guccio Gucci.',
+            'La marca utiliza tanto el nombre GUCCI como el monograma de las dos G. Estos elementos pueden funcionar juntos o de forma independiente.',
+            'Negro, blanco, verde y rojo.',
+            'Comunica lujo, exclusividad, tradición italiana y sofisticación.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- CHANEL -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/chanel.png" alt="Chanel">
+            </div>
+
+            <h3>Chanel</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'CHANEL',
+            '1910',
+            'Francia',
+            'Gabrielle “Coco” Chanel',
+            'La identidad visual de Chanel se caracteriza por su permanencia y simplicidad. Su símbolo más reconocido está formado por dos letras C entrelazadas y enfrentadas, acompañado frecuentemente por el nombre CHANEL.',
+            'Su identidad combina un monograma geométrico de dos C con un logotipo tipográfico en mayúsculas. La composición es sencilla, simétrica y fácilmente reconocible.',
+            'Negro y blanco.',
+            'Comunica elegancia, lujo, exclusividad, tradición y sofisticación.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- PRADA -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/prada.png" alt="Prada">
+            </div>
+
+            <h3>Prada</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'PRADA',
+            '1913',
+            'Italia',
+            'Mario Prada y Martino Prada',
+            'Prada ha mantenido una identidad visual relacionada con su herencia italiana. Su nombre se presenta mediante una tipografía elegante y en algunas aplicaciones históricas aparece acompañado por elementos como un escudo, una cuerda y referencias a Milán.',
+            'La identidad actual se apoya principalmente en el nombre PRADA escrito en mayúsculas con una tipografía de estilo clásico.',
+            'Negro y blanco.',
+            'Comunica lujo, exclusividad, tradición, sobriedad y elegancia.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- LOUIS VUITTON -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/louisvuitton.png" alt="Louis Vuitton">
+            </div>
+
+            <h3>Louis Vuitton</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'LOUIS VUITTON',
+            '1854',
+            'Francia',
+            'Louis Vuitton',
+            'La identidad de Louis Vuitton se consolidó con el conocido monograma LV. Este símbolo se convirtió en un elemento central de sus productos y se combina con patrones florales característicos de la marca.',
+            'Su identidad está construida alrededor de las iniciales L y V superpuestas. El monograma puede utilizarse solo, acompañado del nombre o integrado en patrones.',
+            'Marrón, dorado, negro y blanco.',
+            'Comunica lujo, tradición, exclusividad, artesanía y prestigio.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- DIOR -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/dior.png" alt="Dior">
+            </div>
+
+            <h3>Dior</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'DIOR',
+            '1946',
+            'Francia',
+            'Christian Dior',
+            'Dior ha construido una identidad visual principalmente tipográfica. El apellido de su fundador se convirtió en el elemento central de la marca y ha mantenido una estética elegante y sencilla.',
+            'Su logotipo utiliza el nombre DIOR con una tipografía de estilo clásico. La sencillez de la composición permite transmitir una imagen refinada sin utilizar demasiados elementos.',
+            'Negro y blanco.',
+            'Comunica elegancia, lujo, sofisticación y tradición de la moda francesa.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- VERSACE -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/versace.png" alt="Versace">
+            </div>
+
+            <h3>Versace</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'VERSACE',
+            '1978',
+            'Italia',
+            'Gianni Versace',
+            'Versace desarrolló una identidad visual inspirada en la cultura y mitología clásica. Uno de sus elementos más conocidos es la cabeza de Medusa, utilizada como símbolo representativo de la casa de moda.',
+            'La identidad combina el nombre VERSACE con el símbolo de Medusa. También utiliza patrones ornamentales inspirados en elementos clásicos y grecorromanos.',
+            'Negro, dorado y blanco.',
+            'Comunica lujo, poder, extravagancia, exclusividad y una fuerte inspiración clásica.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+        <!-- BURBERRY -->
+
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/burberry.png" alt="Burberry">
+            </div>
+
+            <h3>Burberry</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'BURBERRY',
+            '1856',
+            'Reino Unido',
+            'Thomas Burberry',
+            'Burberry ha utilizado diferentes versiones de su identidad. Uno de sus símbolos históricos más importantes es el caballero ecuestre. La marca también es reconocida por su característico patrón de cuadros utilizado en numerosos productos.',
+            'Su identidad combina el nombre BURBERRY con elementos históricos como el caballero ecuestre y el conocido patrón de cuadros.',
+            'Negro, blanco, beige y rojo.',
+            'Comunica tradición británica, elegancia, calidad, herencia y lujo.'
+            )">
+
+            CONOCER +
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-contenido">
+
+        <button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+        <h2 id="modalTitulo"></h2>
+
+        <div class="linea"></div>
+
+        <div class="subtitulo">
+            FICHA DE IDENTIDAD CORPORATIVA
+        </div>
+
+
+        <div class="ficha">
+
+            <div class="fila">
+                <strong>Año de creación:</strong>
+                <span id="modalAnio"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Origen:</strong>
+                <span id="modalOrigen"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Fundador(es):</strong>
+                <span id="modalFundadores"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Evolución del logo:</strong><br>
+                <span id="modalEvolucion"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Construcción de la identidad visual:</strong><br>
+                <span id="modalIdentidad"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Colores principales:</strong><br>
+                <span id="modalColores"></span>
+            </div>
+
+            <div class="fila">
+                <strong>¿Qué comunica?</strong><br>
+                <span id="modalConcepto"></span>
+            </div>
+
+        </div>
+
+
+        <button class="cerrar" onclick="cerrarModal()">
+            CERRAR
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function abrirModal(
+    titulo,
+    anio,
+    origen,
+    fundadores,
+    evolucion,
+    identidad,
+    colores,
+    concepto
+) {
+
+    document.getElementById("modalTitulo").innerText = titulo;
+
+    document.getElementById("modalAnio").innerText = anio;
+
+    document.getElementById("modalOrigen").innerText = origen;
+
+    document.getElementById("modalFundadores").innerText = fundadores;
+
+    document.getElementById("modalEvolucion").innerText = evolucion;
+
+    document.getElementById("modalIdentidad").innerText = identidad;
+
+    document.getElementById("modalColores").innerText = colores;
+
+    document.getElementById("modalConcepto").innerText = concepto;
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+
+function cerrarModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR HACIENDO CLICK FUERA */
+
+window.onclick = function(event) {
+
+    var modal = document.getElementById("modal");
+
+    if (event.target == modal) {
+
+        cerrarModal();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

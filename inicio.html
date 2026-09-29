@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Inicio - Catálogo de Marcas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6f7f8;
+    color: #16324F;
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+.inicio {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 55px 40px;
+}
+
+
+/* TARJETA PRINCIPAL */
+.portada {
+    width: 85%;
+    max-width: 950px;
+
+    background-color: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 50px 60px;
+
+    text-align: center;
+
+    box-shadow: 0px 8px 30px rgba(22, 50, 79, 0.10);
+
+    border: 1px solid #eeeeee;
+}
+
+
+/* PEQUEÑO TEXTO SUPERIOR */
+.etiqueta {
+    color: #D9B44A;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+/* TÍTULO */
+h1 {
+    margin: 0;
+
+    color: #16324F;
+
+    font-size: 32px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+
+/* LÍNEA DORADA */
+.linea {
+    width: 60px;
+    height: 3px;
+
+    background-color: #D9B44A;
+
+    margin: 22px auto;
+}
+
+
+/* DESCRIPCIÓN */
+.descripcion {
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin: 0 auto 35px auto;
+}
+
+
+/* CONTENEDOR DE DATOS */
+.datos {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+
+/* CUADROS DE INFORMACIÓN */
+.dato {
+    width: 190px;
+
+    padding: 20px;
+
+    background-color: #f7f8fa;
+
+    border-radius: 10px;
+
+    border-bottom: 3px solid #D9B44A;
+}
+
+
+/* NÚMEROS */
+.numero {
+    display: block;
+
+    color: #16324F;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+/* TEXTO DE LOS DATOS */
+.texto {
+    color: #777777;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* SECCIÓN INFERIOR */
+.explorar {
+    background: linear-gradient(135deg, #16324F, #1F4E68);
+
+    color: white;
+
+    padding: 25px 30px;
+
+    border-radius: 12px;
+}
+
+
+.explorar h2 {
+    margin: 0 0 10px 0;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.explorar p {
+    margin: 0;
+
+    color: #d9e1e7;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* PUNTO DORADO */
+.dorado {
+    color: #D9B44A;
+    font-weight: bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="inicio">
+
+    <div class="portada">
+
+
+        <div class="etiqueta">
+            IDENTIDAD · DISEÑO · MARCAS
+        </div>
+
+
+        <h1>
+            BIENVENIDO AL CATÁLOGO DE MARCAS
+        </h1>
+
+
+        <div class="linea"></div>
+
+
+        <p class="descripcion">
+
+            Explora una selección de marcas reconocidas,
+            organizadas por categorías para conocer y comparar
+            diferentes identidades visuales.
+
+        </p>
+
+
+        <!-- DATOS -->
+
+        <div class="datos">
+
+            <div class="dato">
+
+                <span class="numero">
+                    150
+                </span>
+
+                <span class="texto">
+                    MARCAS
+                </span>
+
+            </div>
+
+
+            <div class="dato">
+
+                <span class="numero">
+                    15
+                </span>
+
+                <span class="texto">
+                    CATEGORÍAS
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENSAJE INFERIOR -->
+
+        <div class="explorar">
+
+            <h2>
+                EXPLORA EL CATÁLOGO
+            </h2>
+
+            <p>
+                Selecciona una categoría del menú
+                <span class="dorado">●</span>
+                descubre sus marcas
+                <span class="dorado">●</span>
+                conoce su historia.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

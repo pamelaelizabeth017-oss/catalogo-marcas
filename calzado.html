@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Zapatillas / Calzado</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN */
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10,25,40,0.72);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X */
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO MODAL */
+
+.modal-contenido h2 {
+    text-align: center;
+
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #999999;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+
+    <h1>ZAPATILLAS / CALZADO</h1>
+
+    <div class="linea"></div>
+
+    <p>
+        Identidad visual de marcas reconocidas del sector del calzado.
+    </p>
+
+</div>
+
+
+<div class="marcas">
+
+
+<!-- NIKE -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/nike.png" alt="Nike">
+    </div>
+
+    <h3>Nike</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'NIKE',
+    '1964 como Blue Ribbon Sports / Nike desde 1971',
+    'Estados Unidos',
+    'Phil Knight y Bill Bowerman',
+    'La empresa comenzó como Blue Ribbon Sports y adoptó el nombre Nike en 1971. Ese mismo año Carolyn Davidson diseñó el famoso símbolo Swoosh, que se convirtió en uno de los elementos principales de su identidad.',
+    'Su identidad se construye alrededor del Swoosh, una forma curva sencilla que puede utilizarse con el nombre NIKE o de manera independiente.',
+    'Negro, blanco y aplicaciones variables según sus campañas.',
+    'Comunica movimiento, velocidad, energía, rendimiento deportivo y dinamismo.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- ADIDAS -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/adidas.png" alt="Adidas">
+    </div>
+
+    <h3>Adidas</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'ADIDAS',
+    '1949',
+    'Alemania',
+    'Adolf “Adi” Dassler',
+    'La identidad de Adidas está relacionada históricamente con sus tres franjas. A lo largo de los años la empresa ha utilizado diferentes símbolos, entre ellos el trébol y versiones geométricas construidas a partir de las tres franjas.',
+    'Las tres franjas funcionan como uno de los elementos más importantes de reconocimiento de Adidas y pueden aparecer tanto en su logotipo como directamente sobre sus productos.',
+    'Negro y blanco, con variaciones según colecciones.',
+    'Comunica deporte, rendimiento, movimiento, autenticidad y reconocimiento global.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- PUMA -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/puma.png" alt="Puma">
+    </div>
+
+    <h3>Puma</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'PUMA',
+    '1948',
+    'Alemania',
+    'Rudolf Dassler',
+    'La identidad de Puma evolucionó utilizando la figura de un felino como elemento representativo. Con el tiempo, la silueta del puma saltando se convirtió en el símbolo principal de la empresa.',
+    'Su identidad combina el nombre PUMA en letras fuertes con la silueta de un puma en movimiento.',
+    'Negro y blanco, además de colores variables en campañas y productos.',
+    'Comunica velocidad, fuerza, agilidad, deporte y dinamismo.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- REEBOK -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/reebok.png" alt="Reebok">
+    </div>
+
+    <h3>Reebok</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'REEBOK',
+    '1958',
+    'Reino Unido',
+    'Joe y Jeff Foster',
+    'Reebok ha utilizado diferentes símbolos durante su historia, incluyendo referencias a la bandera británica, formas vectoriales y distintas versiones de su nombre. Su identidad ha cambiado para adaptarse a diferentes etapas de la marca.',
+    'La identidad se apoya principalmente en el nombre Reebok y en símbolos geométricos asociados con el deporte y el movimiento.',
+    'Negro, blanco y rojo.',
+    'Comunica actividad física, rendimiento, movimiento y herencia deportiva.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- NEW BALANCE -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/newbalance.png" alt="New Balance">
+    </div>
+
+    <h3>New Balance</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'NEW BALANCE',
+    '1906',
+    'Estados Unidos',
+    'William J. Riley',
+    'New Balance desarrolló una identidad visual basada principalmente en las iniciales NB. Las líneas presentes en el símbolo ayudan a generar una sensación visual de movimiento y velocidad.',
+    'Su identidad combina las letras N y B en un símbolo compacto, acompañado en algunas aplicaciones por el nombre completo New Balance.',
+    'Rojo, blanco y negro.',
+    'Comunica movimiento, rendimiento, estabilidad y tradición deportiva.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- CONVERSE -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/converse.png" alt="Converse">
+    </div>
+
+    <h3>Converse</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'CONVERSE',
+    '1908',
+    'Estados Unidos',
+    'Marquis Mills Converse',
+    'Converse ha utilizado la estrella como uno de sus principales elementos de identidad. Este símbolo está estrechamente relacionado con sus conocidos modelos Chuck Taylor All Star.',
+    'La identidad utiliza el nombre Converse junto con la estrella, elemento que puede aparecer en diferentes composiciones y también directamente sobre el calzado.',
+    'Negro y blanco principalmente.',
+    'Comunica autenticidad, juventud, estilo urbano, creatividad y tradición.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- VANS -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/vans.png" alt="Vans">
+    </div>
+
+    <h3>Vans</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'VANS',
+    '1966',
+    'Estados Unidos',
+    'Paul Van Doren, James Van Doren, Gordon Lee y Serge Delia',
+    'El logotipo de Vans se caracteriza por una tipografía sencilla donde la letra V se extiende sobre las demás letras. Este recurso gráfico se convirtió en una característica reconocible de la marca.',
+    'Su identidad está construida principalmente con el nombre VANS y la extensión horizontal de la letra V. También utiliza elementos relacionados con la cultura del skate.',
+    'Negro, blanco y rojo.',
+    'Comunica juventud, libertad, cultura urbana, skate y estilo informal.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- SKECHERS -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/skechers.png" alt="Skechers">
+    </div>
+
+    <h3>Skechers</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'SKECHERS',
+    '1992',
+    'Estados Unidos',
+    'Robert Greenberg',
+    'Skechers ha mantenido una identidad principalmente tipográfica. Su nombre se presenta con letras de apariencia moderna y deportiva, acompañado en determinadas aplicaciones por una letra S como símbolo.',
+    'La identidad se basa en el nombre SKECHERS y en una S estilizada utilizada en productos y comunicaciones.',
+    'Azul, blanco y negro.',
+    'Comunica comodidad, movimiento, estilo casual y funcionalidad.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- JORDAN -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/jordan.png" alt="Jordan">
+    </div>
+
+    <h3>Jordan</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'JORDAN',
+    '1984-1985 como línea Air Jordan',
+    'Estados Unidos',
+    'Nike en colaboración con Michael Jordan',
+    'La identidad de Air Jordan comenzó vinculada a Nike. Posteriormente, la silueta conocida como Jumpman se convirtió en su símbolo más reconocido, representando a un jugador de baloncesto realizando un salto.',
+    'Su identidad se construye principalmente mediante el símbolo Jumpman. La silueta puede funcionar sin texto debido a su alto nivel de reconocimiento.',
+    'Negro, blanco y rojo como colores muy asociados a la identidad.',
+    'Comunica rendimiento, baloncesto, movimiento, prestigio deportivo y cultura urbana.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+<!-- FILA -->
+
+<div class="tarjeta">
+
+    <div class="logo">
+        <img src="imagenes/fila.png" alt="Fila">
+    </div>
+
+    <h3>Fila</h3>
+
+    <button class="boton"
+    onclick="abrirModal(
+    'FILA',
+    '1911',
+    'Italia',
+    'Los hermanos Fila',
+    'Fila desarrolló una identidad visual basada en su nombre. La letra F estilizada se convirtió en uno de sus elementos más reconocibles y forma parte de una construcción tipográfica característica.',
+    'Su identidad utiliza el nombre FILA con formas geométricas y cortes particulares, especialmente visibles en la letra F.',
+    'Rojo, azul y blanco.',
+    'Comunica deporte, dinamismo, tradición y un estilo relacionado con la moda deportiva.'
+    )">
+    CONOCER +
+    </button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+
+document.getElementById("modalAnio").innerText = anio;
+
+document.getElementById("modalOrigen").innerText = origen;
+
+document.getElementById("modalFundadores").innerText = fundadores;
+
+document.getElementById("modalEvolucion").innerText = evolucion;
+
+document.getElementById("modalIdentidad").innerText = identidad;
+
+document.getElementById("modalColores").innerText = colores;
+
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR AL HACER CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>

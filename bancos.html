@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Bancos</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN */
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10,25,40,0.72);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X */
+
+.x-cerrar {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO MODAL */
+
+.modal-contenido h2 {
+    text-align: center;
+
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #999999;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+
+<h1>BANCOS</h1>
+
+<div class="linea"></div>
+
+<p>
+Identidad visual de marcas reconocidas del sector bancario.
+</p>
+
+</div>
+
+
+<div class="marcas">
+
+
+<!-- BANCO PICHINCHA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/pichincha.png" alt="Banco Pichincha">
+</div>
+
+<h3>Banco Pichincha</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BANCO PICHINCHA',
+'1906',
+'Ecuador',
+'Fundado en Quito por un grupo de empresarios ecuatorianos',
+'La identidad de Banco Pichincha ha evolucionado durante su larga trayectoria. Sus versiones contemporáneas utilizan una imagen más sencilla y adaptable a medios físicos y digitales.',
+'Su identidad se apoya en el nombre Banco Pichincha y en un símbolo geométrico reconocible que permite identificar a la institución en diferentes aplicaciones.',
+'Amarillo, azul y blanco.',
+'Comunica confianza, solidez, cercanía, trayectoria y seguridad.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BANCO GUAYAQUIL -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/guayaquil.png" alt="Banco Guayaquil">
+</div>
+
+<h3>Banco Guayaquil</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BANCO GUAYAQUIL',
+'1923',
+'Ecuador',
+'Institución bancaria fundada originalmente en Guayaquil',
+'Banco Guayaquil ha modernizado su identidad visual a lo largo de su historia, simplificando sus elementos gráficos para funcionar mejor tanto en oficinas como en aplicaciones y servicios digitales.',
+'La identidad utiliza el nombre Banco Guayaquil acompañado por un símbolo gráfico de construcción sencilla y moderna.',
+'Azul, rojo y blanco.',
+'Comunica confianza, modernidad, servicio, seguridad y cercanía.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BANCO DEL PACÍFICO -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/pacifico.png" alt="Banco del Pacífico">
+</div>
+
+<h3>Banco del Pacífico</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BANCO DEL PACÍFICO',
+'1972',
+'Ecuador',
+'Marcel J. Laniado de Wind',
+'Banco del Pacífico ha actualizado su identidad manteniendo una fuerte relación con el color azul. Su imagen ha sido simplificada para adaptarse a nuevos medios y servicios financieros digitales.',
+'La identidad combina el nombre Banco del Pacífico con un símbolo gráfico y una composición visual asociada con estabilidad y confianza.',
+'Azul y blanco.',
+'Comunica seguridad, estabilidad, confianza, tecnología y servicio.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- PRODUBANCO -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/produbanco.png" alt="Produbanco">
+</div>
+
+<h3>Produbanco</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PRODUBANCO',
+'1978',
+'Ecuador',
+'Institución financiera fundada en Ecuador',
+'Produbanco ha desarrollado diferentes versiones de su identidad visual. Su imagen actual busca proyectar una apariencia moderna y profesional, adaptada a servicios financieros digitales.',
+'Su identidad se construye mediante el nombre Produbanco acompañado por elementos gráficos sencillos que permiten una aplicación consistente en diferentes soportes.',
+'Verde, azul y blanco.',
+'Comunica confianza, crecimiento, modernidad, seguridad y servicio financiero.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BANCO INTERNACIONAL -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/internacional.png" alt="Banco Internacional">
+</div>
+
+<h3>Banco Internacional</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BANCO INTERNACIONAL',
+'1973',
+'Ecuador',
+'Institución financiera establecida en Quito',
+'Banco Internacional ha desarrollado una identidad corporativa orientada a transmitir estabilidad y profesionalismo. Su logotipo ha sido adaptado para mantener una imagen clara en medios tradicionales y digitales.',
+'La identidad utiliza el nombre Banco Internacional acompañado por un símbolo gráfico que facilita el reconocimiento de la institución.',
+'Azul, blanco y tonos complementarios.',
+'Comunica estabilidad, confianza, profesionalismo, seguridad y solidez.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- JPMORGAN CHASE -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/chase.png" alt="JPMorgan Chase">
+</div>
+
+<h3>JPMorgan Chase</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'JPMORGAN CHASE',
+'2000 como JPMorgan Chase & Co.',
+'Estados Unidos',
+'Resultado de la unión de J.P. Morgan & Co. y Chase Manhattan, con antecedentes históricos anteriores',
+'La identidad actual surgió de la integración de diferentes instituciones financieras históricas. La marca utiliza principalmente una construcción tipográfica sobria y profesional.',
+'Su identidad se apoya en el nombre JPMorgan Chase y en una estética visual sencilla que transmite institucionalidad y presencia internacional.',
+'Azul, negro y blanco.',
+'Comunica solidez, profesionalismo, confianza, experiencia y alcance internacional.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BANK OF AMERICA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/bankofamerica.png" alt="Bank of America">
+</div>
+
+<h3>Bank of America</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BANK OF AMERICA',
+'1998 con su estructura moderna; sus antecedentes se remontan a 1904',
+'Estados Unidos',
+'Su historia está vinculada a Amadeo Pietro Giannini y a posteriores fusiones bancarias',
+'La identidad de Bank of America utiliza un símbolo formado por franjas geométricas que recuerdan la bandera de Estados Unidos. El diseño se ha simplificado con el paso del tiempo.',
+'La identidad combina el nombre Bank of America con un símbolo compuesto por líneas rojas y azules que generan una figura dinámica.',
+'Rojo, azul y blanco.',
+'Comunica confianza, presencia nacional, estabilidad, movimiento y servicios financieros.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- SANTANDER -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/santander.png" alt="Santander">
+</div>
+
+<h3>Santander</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'SANTANDER',
+'1857',
+'España',
+'Banco fundado en la ciudad de Santander',
+'Santander ha simplificado su identidad a lo largo de los años. Su símbolo más reconocido utiliza una forma abstracta que recuerda una llama, acompañada por el nombre Santander.',
+'La identidad combina el símbolo de una llama estilizada con una tipografía sencilla y moderna.',
+'Rojo y blanco.',
+'Comunica energía, confianza, cercanía, dinamismo y presencia internacional.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- HSBC -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/hsbc.png" alt="HSBC">
+</div>
+
+<h3>HSBC</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'HSBC',
+'1865',
+'Hong Kong',
+'Thomas Sutherland impulsó la creación del banco',
+'HSBC desarrolló un símbolo geométrico basado en formas triangulares rojas y blancas. El emblema ha sido simplificado manteniendo una apariencia sólida y fácilmente reconocible.',
+'La identidad combina las letras HSBC con un símbolo geométrico rojo formado por triángulos y figuras similares a un hexágono.',
+'Rojo, blanco y negro.',
+'Comunica solidez, presencia internacional, seguridad, profesionalismo y confianza.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BBVA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/bbva.png" alt="BBVA">
+</div>
+
+<h3>BBVA</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BBVA',
+'1999 bajo el nombre BBVA',
+'España',
+'Resultado de la fusión de BBV y Argentaria, con antecedentes históricos desde el siglo XIX',
+'BBVA ha simplificado su identidad para crear una marca global unificada. En 2019 presentó una actualización de su logotipo con una tipografía más limpia y una composición pensada para entornos digitales.',
+'Su identidad se construye principalmente mediante las letras BBVA en mayúsculas, utilizando una composición tipográfica sencilla y reconocible.',
+'Azul y blanco.',
+'Comunica confianza, innovación, transformación digital, estabilidad y alcance internacional.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+document.getElementById("modalAnio").innerText = anio;
+document.getElementById("modalOrigen").innerText = origen;
+document.getElementById("modalFundadores").innerText = fundadores;
+document.getElementById("modalEvolucion").innerText = evolucion;
+document.getElementById("modalIdentidad").innerText = identidad;
+document.getElementById("modalColores").innerText = colores;
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR HACIENDO CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Streaming y entretenimiento</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN */
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10,25,40,0.72);
+
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X */
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO MODAL */
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+
+<h1>STREAMING Y ENTRETENIMIENTO</h1>
+
+<div class="linea"></div>
+
+<p>
+Identidad visual de plataformas reconocidas de streaming y entretenimiento.
+</p>
+
+</div>
+
+
+<div class="marcas">
+
+
+<!-- NETFLIX -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/netflix.png" alt="Netflix">
+</div>
+
+<h3>Netflix</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'NETFLIX',
+'1997',
+'Estados Unidos',
+'Reed Hastings y Marc Randolph',
+'Netflix comenzó con diferentes versiones de su identidad hasta consolidar su característico logotipo tipográfico rojo. Posteriormente incorporó una letra N estilizada como símbolo para aplicaciones digitales.',
+'Su identidad se construye principalmente mediante el nombre NETFLIX y la letra N. El diseño sencillo permite una fácil aplicación en pantallas, aplicaciones y producciones audiovisuales.',
+'Rojo, negro y blanco.',
+'Comunica entretenimiento, innovación, contenido audiovisual y una experiencia digital moderna.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- DISNEY+ -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/disneyplus.png" alt="Disney+">
+</div>
+
+<h3>Disney+</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'DISNEY+',
+'2019',
+'Estados Unidos',
+'Servicio creado por The Walt Disney Company',
+'Disney+ utiliza como base la histórica escritura de Disney y añade el símbolo +. Una línea curva situada sobre el nombre funciona como elemento visual asociado con la plataforma.',
+'La identidad combina el reconocido nombre Disney con el signo + y una curva superior. Esto permite relacionar la plataforma directamente con la identidad histórica de Disney.',
+'Azul, blanco y negro.',
+'Comunica entretenimiento familiar, imaginación, historias, fantasía y contenido audiovisual.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- MAX -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/max.png" alt="Max">
+</div>
+
+<h3>Max</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'MAX',
+'2023 como Max',
+'Estados Unidos',
+'Plataforma desarrollada por Warner Bros. Discovery',
+'La plataforma surgió como una evolución de HBO Max y adoptó el nombre Max en 2023. Su identidad simplificó el nombre y desarrolló una imagen visual enfocada en el entorno digital.',
+'La identidad se construye principalmente mediante el nombre MAX con una tipografía fuerte y sencilla, diseñada para funcionar fácilmente en aplicaciones y pantallas.',
+'Azul, negro y blanco.',
+'Comunica entretenimiento, contenido audiovisual, modernidad y variedad.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- PRIME VIDEO -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/primevideo.png" alt="Prime Video">
+</div>
+
+<h3>Prime Video</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PRIME VIDEO',
+'2006',
+'Estados Unidos',
+'Servicio desarrollado por Amazon',
+'El servicio pasó por diferentes nombres e identidades antes de consolidarse como Prime Video. Su imagen incorpora la característica flecha curva relacionada con la identidad visual de Amazon.',
+'La identidad utiliza el nombre prime video acompañado por una línea curva similar a una sonrisa o flecha, estableciendo una relación visual con Amazon.',
+'Azul, negro y blanco.',
+'Comunica entretenimiento digital, accesibilidad, variedad y conexión con el ecosistema de Amazon.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- PARAMOUNT+ -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/paramountplus.png" alt="Paramount+">
+</div>
+
+<h3>Paramount+</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PARAMOUNT+',
+'2021 con el nombre Paramount+',
+'Estados Unidos',
+'Servicio desarrollado por Paramount',
+'La identidad de Paramount+ toma como base el histórico símbolo de Paramount Pictures: una montaña rodeada de estrellas. El signo + diferencia a la plataforma de streaming.',
+'Su identidad combina la montaña de Paramount, las estrellas, el nombre de la marca y el símbolo +. Esto conecta la plataforma con la historia audiovisual de Paramount.',
+'Azul y blanco.',
+'Comunica entretenimiento, cine, tradición audiovisual y contenido digital.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- HULU -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/hulu.png" alt="Hulu">
+</div>
+
+<h3>Hulu</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'HULU',
+'2007',
+'Estados Unidos',
+'Creada inicialmente como una empresa conjunta de compañías de medios',
+'La identidad de Hulu se ha caracterizado por utilizar un logotipo tipográfico sencillo. Con el paso del tiempo se realizaron ajustes en la tipografía y en los tonos de verde.',
+'Su identidad se construye principalmente mediante la palabra hulu escrita en minúsculas. La sencillez del logotipo facilita su uso en interfaces digitales.',
+'Verde, negro y blanco.',
+'Comunica entretenimiento digital, modernidad, frescura y sencillez.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- CRUNCHYROLL -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/crunchyroll.png" alt="Crunchyroll">
+</div>
+
+<h3>Crunchyroll</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'CRUNCHYROLL',
+'2006',
+'Estados Unidos',
+'Kun Gao, Brandon Ooi, Vu Nguyen y un grupo de colaboradores',
+'Crunchyroll desarrolló una identidad reconocible mediante un símbolo circular de apariencia dinámica. Su logotipo ha sido simplificado y actualizado conservando el color naranja como elemento distintivo.',
+'La identidad combina un símbolo circular con el nombre Crunchyroll. Su construcción visual funciona especialmente bien en plataformas digitales y aplicaciones.',
+'Naranja, blanco y negro.',
+'Comunica entretenimiento, anime, comunidad, juventud y cultura digital.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- APPLE TV+ -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/appletvplus.png" alt="Apple TV+">
+</div>
+
+<h3>Apple TV+</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'APPLE TV+',
+'2019',
+'Estados Unidos',
+'Servicio desarrollado por Apple',
+'Apple TV+ utiliza directamente elementos de la identidad corporativa de Apple. El símbolo de la manzana se combina con las letras TV y el signo + para identificar el servicio.',
+'La identidad está construida mediante el reconocido símbolo de Apple acompañado por TV+. Su diseño minimalista mantiene coherencia con el resto de productos y servicios de la compañía.',
+'Negro y blanco.',
+'Comunica minimalismo, tecnología, calidad, entretenimiento y coherencia con el ecosistema Apple.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- PEACOCK -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/peacock.png" alt="Peacock">
+</div>
+
+<h3>Peacock</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PEACOCK',
+'2020',
+'Estados Unidos',
+'Servicio desarrollado por NBCUniversal',
+'La identidad de Peacock está relacionada con la historia visual de NBC y su conocido símbolo del pavo real. La plataforma utiliza un logotipo tipográfico acompañado por una serie de puntos de colores.',
+'Su identidad combina el nombre peacock con seis puntos de diferentes colores, creando una referencia visual al tradicional pavo real asociado con NBC.',
+'Negro, blanco y varios colores como amarillo, naranja, rojo, morado, azul y verde.',
+'Comunica variedad, entretenimiento, diversidad de contenidos y una personalidad dinámica.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- MUBI -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/mubi.png" alt="MUBI">
+</div>
+
+<h3>MUBI</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'MUBI',
+'2007',
+'Reino Unido',
+'Efe Çakarel',
+'MUBI ha desarrollado una identidad minimalista relacionada con su enfoque en el cine. Su logotipo utiliza el nombre de la plataforma acompañado por una composición de puntos circulares.',
+'La identidad combina una tipografía sencilla con elementos circulares que generan una composición gráfica reconocible y adaptable.',
+'Negro y blanco principalmente.',
+'Comunica cine, cultura, selección especializada, creatividad y una estética contemporánea.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+
+document.getElementById("modalAnio").innerText = anio;
+
+document.getElementById("modalOrigen").innerText = origen;
+
+document.getElementById("modalFundadores").innerText = fundadores;
+
+document.getElementById("modalEvolucion").innerText = evolucion;
+
+document.getElementById("modalIdentidad").innerText = identidad;
+
+document.getElementById("modalColores").innerText = colores;
+
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR HACIENDO CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>

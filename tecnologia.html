@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Tecnología</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETA */
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 120px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN */
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* FONDO OSCURO DEL MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10, 25, 40, 0.72);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+/* VENTANA */
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X PARA CERRAR */
+.x-cerrar {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO DEL MODAL */
+.modal-contenido h2 {
+    text-align: center;
+
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+    text-align: center;
+
+    color: #999999;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* DETALLE DORADO */
+.dorado {
+    color: #C89B2C;
+}
+
+/* BOTÓN CERRAR */
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+    <div class="encabezado">
+
+        <h1>TECNOLOGÍA</h1>
+
+        <div class="linea"></div>
+
+        <p>
+            Identidad visual de marcas reconocidas del sector tecnológico.
+        </p>
+
+    </div>
+
+
+    <div class="marcas">
+
+
+        <!-- APPLE -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/apple.png" alt="Apple">
+            </div>
+
+            <h3>Apple</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'APPLE',
+            '1976',
+            'Estados Unidos',
+            'Steve Jobs, Steve Wozniak y Ronald Wayne',
+            'El primer logotipo de Apple fue creado en 1976 y mostraba una ilustración de Isaac Newton. Ese mismo año se desarrolló la conocida manzana mordida, diseñada por Rob Janoff. Con el tiempo pasó de utilizar franjas de colores a versiones monocromáticas.',
+            'Su identidad se construye principalmente mediante la silueta simple de una manzana mordida. El símbolo puede reconocerse sin necesidad de utilizar el nombre de la empresa.',
+            'Negro, blanco, gris y versiones monocromáticas.',
+            'La identidad visual transmite simplicidad, innovación, modernidad y una estética minimalista.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- SAMSUNG -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/samsung.png" alt="Samsung">
+            </div>
+
+            <h3>Samsung</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'SAMSUNG',
+            '1938 / Samsung Electronics en 1969',
+            'Corea del Sur',
+            'Lee Byung-chull',
+            'Los primeros logotipos de Samsung incluían tres estrellas, relacionadas directamente con el significado de su nombre. En 1993 la marca adoptó una identidad más moderna con un óvalo azul. Posteriormente simplificó su imagen y actualmente utiliza principalmente su nombre como logotipo.',
+            'La identidad actual se basa en un logotipo tipográfico sencillo y reconocible. La palabra Samsung funciona como el principal elemento identificador de la marca.',
+            'Azul, blanco y versiones monocromáticas.',
+            'Busca comunicar tecnología, confianza, innovación y presencia global.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- XIAOMI -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/xiaomi.png" alt="Xiaomi">
+            </div>
+
+            <h3>Xiaomi</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'XIAOMI',
+            '2010',
+            'China',
+            'Lei Jun y un grupo de socios fundadores',
+            'Xiaomi utilizó durante sus primeros años el símbolo MI dentro de una forma cuadrada. En 2021 presentó una renovación de su identidad, suavizando la forma exterior del símbolo para darle una apariencia más redondeada y moderna.',
+            'Su identidad utiliza el símbolo MI dentro de una forma de esquinas redondeadas. Es una construcción sencilla que facilita su reconocimiento en dispositivos y medios digitales.',
+            'Naranja y blanco.',
+            'La identidad busca representar innovación, cercanía, dinamismo y tecnología accesible.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- SONY -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/sony.png" alt="Sony">
+            </div>
+
+            <h3>Sony</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'SONY',
+            '1946',
+            'Japón',
+            'Masaru Ibuka y Akio Morita',
+            'La empresa nació como Tokyo Tsushin Kogyo y en 1958 adoptó el nombre Sony. Su logotipo evolucionó hasta convertirse en una marca principalmente tipográfica, manteniendo durante décadas una apariencia sobria y reconocible.',
+            'La identidad se construye principalmente con la palabra SONY en letras mayúsculas y una tipografía de carácter clásico. La simplicidad permite que el nombre sea el elemento central.',
+            'Negro, blanco y versiones monocromáticas.',
+            'Comunica solidez, calidad, tecnología, trayectoria y reconocimiento internacional.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- HP -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/hp.png" alt="HP">
+            </div>
+
+            <h3>HP</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'HP',
+            '1939',
+            'Estados Unidos',
+            'Bill Hewlett y Dave Packard',
+            'La identidad de Hewlett-Packard ha evolucionado conservando durante gran parte de su historia las iniciales hp como elemento principal. Con los años el símbolo fue simplificado para adaptarse mejor a medios digitales y productos tecnológicos.',
+            'Su identidad utiliza las iniciales hp como elemento principal. La reducción del nombre a dos letras permite crear una marca compacta y fácilmente reconocible.',
+            'Azul y blanco, además de aplicaciones monocromáticas.',
+            'Busca comunicar tecnología, funcionalidad, confianza, innovación y simplicidad.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- DELL -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/dell.png" alt="Dell">
+            </div>
+
+            <h3>Dell</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'DELL',
+            '1984',
+            'Estados Unidos',
+            'Michael Dell',
+            'Dell comenzó como PC´s Limited y posteriormente adoptó el apellido de su fundador. Su identidad visual ha sido simplificada con el paso del tiempo. Una característica reconocible ha sido la letra E inclinada dentro del nombre DELL.',
+            'El logotipo se basa principalmente en el nombre de la empresa. La E inclinada introduce un elemento distintivo dentro de una construcción tipográfica sencilla.',
+            'Azul, blanco y aplicaciones monocromáticas.',
+            'La identidad comunica tecnología, confianza, funcionalidad y orientación empresarial.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- LENOVO -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/lenovo.png" alt="Lenovo">
+            </div>
+
+            <h3>Lenovo</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'LENOVO',
+            '1984',
+            'China',
+            'Liu Chuanzhi y un grupo de ingenieros',
+            'La empresa comenzó bajo el nombre Legend. Con su expansión internacional adoptó el nombre Lenovo. Su identidad visual se modernizó utilizando una tipografía sencilla y flexible que puede aplicarse sobre diferentes fondos y colores.',
+            'Su logotipo es principalmente tipográfico. La palabra Lenovo funciona como elemento central y puede adaptarse a distintos soportes manteniendo una estructura simple.',
+            'Rojo, blanco, negro y aplicaciones variables según el soporte.',
+            'Busca transmitir innovación, adaptación, tecnología global y modernidad.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- ASUS -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/asus.png" alt="ASUS">
+            </div>
+
+            <h3>ASUS</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'ASUS',
+            '1989',
+            'Taiwán',
+            'T. H. Tung, Ted Hsu, Wayne Hsieh y M. T. Liao',
+            'ASUS nació en 1989 y construyó una identidad vinculada directamente con la innovación tecnológica. Su logotipo se ha mantenido principalmente tipográfico, utilizando letras estilizadas y cortes geométricos.',
+            'El nombre ASUS está construido con formas geométricas y letras modificadas. Su aspecto angular ayuda a relacionar visualmente la marca con tecnología y precisión.',
+            'Azul, negro, blanco y aplicaciones monocromáticas.',
+            'La identidad busca comunicar innovación, precisión, rendimiento y una visión tecnológica de futuro.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- ACER -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/acer.png" alt="Acer">
+            </div>
+
+            <h3>Acer</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'ACER',
+            '1976',
+            'Taiwán',
+            'Stan Shih, Carolyn Yeh y otros socios',
+            'La empresa fue fundada originalmente con el nombre Multitech. En 1987 adoptó el nombre Acer. Su identidad visual evolucionó hacia una palabra escrita en minúsculas y formas suaves, buscando una apariencia más cercana y contemporánea.',
+            'El logotipo actual utiliza principalmente la palabra acer en minúsculas. Sus formas curvas y sencillas crean una identidad fácil de aplicar y reconocer.',
+            'Verde, blanco y aplicaciones monocromáticas.',
+            'Comunica accesibilidad, tecnología, sencillez, modernidad y cercanía.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+        <!-- HUAWEI -->
+        <div class="tarjeta">
+
+            <div class="logo">
+                <img src="imagenes/huawei.png" alt="Huawei">
+            </div>
+
+            <h3>Huawei</h3>
+
+            <button class="boton"
+            onclick="abrirModal(
+            'HUAWEI',
+            '1987',
+            'China',
+            'Ren Zhengfei',
+            'Huawei ha utilizado durante años un símbolo compuesto por varias formas que se abren desde un punto central. Con el tiempo el símbolo fue simplificado y acompañado por una tipografía más limpia para facilitar su uso internacional.',
+            'La identidad combina un símbolo radial con el nombre HUAWEI. La composición genera una forma simétrica y reconocible que funciona tanto junto al nombre como de manera independiente.',
+            'Rojo, negro y blanco.',
+            'Busca comunicar conectividad, innovación, expansión tecnológica y presencia global.'
+            )">
+            CONOCER +
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-contenido">
+
+        <button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+        <h2 id="modalTitulo"></h2>
+
+        <div class="linea"></div>
+
+        <div class="subtitulo">
+            FICHA DE IDENTIDAD CORPORATIVA
+        </div>
+
+        <div class="ficha">
+
+            <div class="fila">
+                <strong>Año de creación:</strong>
+                <span id="modalAnio"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Origen:</strong>
+                <span id="modalOrigen"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Fundador(es):</strong>
+                <span id="modalFundadores"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Evolución del logo:</strong><br>
+                <span id="modalEvolucion"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Construcción de la identidad visual:</strong><br>
+                <span id="modalIdentidad"></span>
+            </div>
+
+            <div class="fila">
+                <strong>Colores principales:</strong><br>
+                <span id="modalColores"></span>
+            </div>
+
+            <div class="fila">
+                <strong>¿Qué comunica?</strong><br>
+                <span id="modalConcepto"></span>
+            </div>
+
+        </div>
+
+
+        <button class="cerrar" onclick="cerrarModal()">
+            CERRAR
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function abrirModal(
+    titulo,
+    anio,
+    origen,
+    fundadores,
+    evolucion,
+    identidad,
+    colores,
+    concepto
+) {
+
+    document.getElementById("modalTitulo").innerText = titulo;
+
+    document.getElementById("modalAnio").innerText = anio;
+
+    document.getElementById("modalOrigen").innerText = origen;
+
+    document.getElementById("modalFundadores").innerText = fundadores;
+
+    document.getElementById("modalEvolucion").innerText = evolucion;
+
+    document.getElementById("modalIdentidad").innerText = identidad;
+
+    document.getElementById("modalColores").innerText = colores;
+
+    document.getElementById("modalConcepto").innerText = concepto;
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+
+function cerrarModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR AL HACER CLICK FUERA DE LA VENTANA */
+
+window.onclick = function(event) {
+
+    var modal = document.getElementById("modal");
+
+    if (event.target == modal) {
+
+        cerrarModal();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

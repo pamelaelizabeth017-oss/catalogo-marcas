@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Comida rápida</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+/* CUADRÍCULA */
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+/* LOGOS */
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* NOMBRE */
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+/* BOTÓN */
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(10,25,40,0.72);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+
+    width: 600px;
+    max-width: 95%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: white;
+
+    padding: 35px 40px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+
+    border-top: 5px solid #D9B44A;
+}
+
+/* X */
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    color: #777777;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+/* TÍTULO MODAL */
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+/* INFORMACIÓN */
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+
+    color: #606060;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+    display: block;
+
+    margin: 25px auto 0 auto;
+
+    padding: 11px 30px;
+
+    background-color: #16324F;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+
+    <h1>COMIDA RÁPIDA</h1>
+
+    <div class="linea"></div>
+
+    <p>
+        Identidad visual de marcas reconocidas del sector de comida rápida.
+    </p>
+
+</div>
+
+
+<div class="marcas">
+
+
+<!-- MCDONALD'S -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/mcdonalds.png" alt="McDonald's">
+</div>
+
+<h3>McDonald's</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'MCDONALD´S',
+'1940',
+'Estados Unidos',
+'Richard y Maurice McDonald',
+'La identidad de McDonald´s evolucionó desde los primeros restaurantes de los hermanos McDonald hasta los conocidos Arcos Dorados. La letra M formada por dos arcos se convirtió en el símbolo principal de la marca.',
+'Su identidad se construye principalmente mediante los Arcos Dorados, que forman una M reconocible incluso cuando aparecen sin el nombre de la empresa.',
+'Amarillo, rojo y blanco.',
+'Comunica energía, cercanía, rapidez, reconocimiento y una experiencia familiar.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- KFC -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/kfc.png" alt="KFC">
+</div>
+
+<h3>KFC</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'KFC',
+'1952 como franquicia',
+'Estados Unidos',
+'Harland “Colonel” Sanders',
+'La imagen del Coronel Sanders se convirtió en el principal elemento de identidad de KFC. El retrato ha sido simplificado y modernizado a través de los años, conservando sus características principales.',
+'La identidad combina las siglas KFC con la representación gráfica del Coronel Sanders. Su rostro funciona como personaje y símbolo de la historia de la marca.',
+'Rojo, blanco y negro.',
+'Comunica tradición, personalidad, cercanía y reconocimiento dentro del sector de comida rápida.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- BURGER KING -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/burgerking.png" alt="Burger King">
+</div>
+
+<h3>Burger King</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BURGER KING',
+'1954',
+'Estados Unidos',
+'James McLamore y David Edgerton',
+'Burger King ha utilizado durante décadas una identidad inspirada en una hamburguesa. En 2021 renovó su imagen recuperando una estética similar a versiones históricas de la marca, con formas simples y redondeadas.',
+'El nombre Burger King se ubica visualmente entre dos formas que representan los panes de una hamburguesa, creando una relación directa entre el símbolo y el producto.',
+'Rojo, naranja, amarillo, marrón y tonos crema.',
+'Comunica sabor, cercanía, diversión, tradición y una identidad directamente relacionada con las hamburguesas.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- SUBWAY -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/subway.png" alt="Subway">
+</div>
+
+<h3>Subway</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'SUBWAY',
+'1965',
+'Estados Unidos',
+'Fred DeLuca y Peter Buck',
+'Subway ha mantenido como característica visual las flechas presentes en las letras S y Y. Su logotipo ha sido simplificado con el tiempo para utilizar formas más limpias y modernas.',
+'La identidad se construye principalmente con el nombre SUBWAY. Las flechas ubicadas en los extremos de la palabra son sus elementos gráficos más característicos.',
+'Verde, amarillo y blanco.',
+'Comunica frescura, rapidez, movimiento y una alternativa de comida preparada al momento.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- WENDY'S -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/wendys.png" alt="Wendy's">
+</div>
+
+<h3>Wendy's</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'WENDY´S',
+'1969',
+'Estados Unidos',
+'Dave Thomas',
+'La identidad de Wendy´s utiliza desde sus primeros años la imagen de una niña pelirroja inspirada en la hija del fundador. El personaje ha sido simplificado y actualizado manteniendo sus rasgos principales.',
+'La marca combina el nombre Wendy´s con el retrato ilustrado de la niña, creando una identidad con un personaje fácilmente reconocible.',
+'Rojo, blanco, azul y negro.',
+'Comunica cercanía, tradición, personalidad y una imagen familiar.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- DOMINO'S -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/dominos.png" alt="Domino's">
+</div>
+
+<h3>Domino's</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'DOMINO´S',
+'1960',
+'Estados Unidos',
+'Tom Monaghan y James Monaghan',
+'Domino´s desarrolló su identidad a partir de una ficha de dominó. Los tres puntos del símbolo representaban originalmente las primeras tiendas de la empresa. Con el tiempo el diseño fue simplificado.',
+'Su identidad utiliza una ficha de dominó dividida en dos áreas con tres puntos. El símbolo geométrico permite reconocer la marca sin necesidad de utilizar siempre su nombre.',
+'Rojo, azul y blanco.',
+'Comunica rapidez, sencillez, servicio y una fuerte asociación con la entrega de pizza.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- PIZZA HUT -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/pizzahut.png" alt="Pizza Hut">
+</div>
+
+<h3>Pizza Hut</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PIZZA HUT',
+'1958',
+'Estados Unidos',
+'Dan y Frank Carney',
+'Pizza Hut es reconocida por el elemento gráfico que representa un techo rojo. La identidad ha cambiado en diferentes etapas, pero este elemento se ha mantenido como una referencia visual importante.',
+'La marca combina el nombre Pizza Hut con una forma roja similar al techo de un restaurante, creando un símbolo relacionado con su historia visual.',
+'Rojo, negro y blanco.',
+'Comunica tradición, comida compartida, cercanía y reconocimiento dentro del mercado de pizzas.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- TACO BELL -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/tacobell.png" alt="Taco Bell">
+</div>
+
+<h3>Taco Bell</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'TACO BELL',
+'1962',
+'Estados Unidos',
+'Glen Bell',
+'La campana ha sido el elemento principal de la identidad de Taco Bell durante varias décadas. El símbolo evolucionó hacia una versión más sencilla y adaptable a diferentes aplicaciones.',
+'Su identidad combina una campana estilizada con el nombre Taco Bell. La campana crea una relación visual directa con el apellido de su fundador.',
+'Morado, blanco y negro, con variaciones según la aplicación.',
+'Comunica juventud, dinamismo, modernidad y una personalidad informal.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- POPEYES -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/popeyes.png" alt="Popeyes">
+</div>
+
+<h3>Popeyes</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'POPEYES',
+'1972',
+'Estados Unidos',
+'Al Copeland',
+'Popeyes ha modificado su identidad varias veces manteniendo una estética cálida relacionada con su origen en Luisiana. Sus versiones más recientes simplificaron el logotipo y reforzaron el uso del color naranja.',
+'La identidad actual utiliza principalmente el nombre POPEYES mediante letras gruesas y sencillas, acompañado en algunas aplicaciones por símbolos complementarios.',
+'Naranja, blanco y tonos cálidos.',
+'Comunica energía, sabor, cercanía y una relación con la tradición culinaria de Luisiana.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- LITTLE CAESARS -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/littlecaesars.png" alt="Little Caesars">
+</div>
+
+<h3>Little Caesars</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'LITTLE CAESARS',
+'1959',
+'Estados Unidos',
+'Mike Ilitch y Marian Ilitch',
+'Little Caesars utiliza un personaje inspirado en un emperador romano como principal elemento visual. La ilustración ha sido actualizada y simplificada con el paso de los años.',
+'La identidad combina el personaje de Little Caesar con el nombre de la empresa. El personaje aporta una imagen divertida y diferenciadora a la marca.',
+'Naranja, blanco y negro.',
+'Comunica diversión, accesibilidad, rapidez y una personalidad cercana.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+
+document.getElementById("modalAnio").innerText = anio;
+
+document.getElementById("modalOrigen").innerText = origen;
+
+document.getElementById("modalFundadores").innerText = fundadores;
+
+document.getElementById("modalEvolucion").innerText = evolucion;
+
+document.getElementById("modalIdentidad").innerText = identidad;
+
+document.getElementById("modalColores").innerText = colores;
+
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+
+/* CERRAR HACIENDO CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

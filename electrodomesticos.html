@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Electrodomésticos</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10,25,40,0.72);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+    border-top: 5px solid #D9B44A;
+}
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #777777;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #606060;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+.cerrar {
+    display: block;
+    margin: 25px auto 0 auto;
+    padding: 11px 30px;
+    background-color: #16324F;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+<h1>ELECTRODOMÉSTICOS</h1>
+<div class="linea"></div>
+<p>Identidad visual de marcas reconocidas del sector de electrodomésticos.</p>
+</div>
+
+<div class="marcas">
+
+
+<!-- LG -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/lg.png" alt="LG">
+</div>
+
+<h3>LG</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'LG',
+'1958; nombre LG adoptado posteriormente',
+'Corea del Sur',
+'Koo In-hwoi',
+'La empresa comenzó como GoldStar y posteriormente adoptó la marca LG. Su identidad moderna utiliza las letras L y G integradas dentro de un símbolo circular que también recuerda a un rostro.',
+'La identidad combina un símbolo circular con las letras L y G y el nombre LG. Su construcción simple facilita su aplicación en productos y medios digitales.',
+'Rojo, blanco y gris.',
+'Comunica tecnología, innovación, modernidad, cercanía y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- WHIRLPOOL -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/whirlpool.png" alt="Whirlpool">
+</div>
+
+<h3>Whirlpool</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'WHIRLPOOL',
+'1911',
+'Estados Unidos',
+'Louis Upton y Emory Upton',
+'Whirlpool ha evolucionado hacia una identidad principalmente tipográfica. Su nombre aparece acompañado por una forma elíptica que genera una sensación de movimiento alrededor de la palabra.',
+'La identidad se construye mediante el nombre Whirlpool y una línea curva o elíptica que funciona como elemento gráfico distintivo.',
+'Negro, blanco y amarillo dorado.',
+'Comunica confianza, hogar, tecnología, funcionalidad y experiencia.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- MABE -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/mabe.png" alt="Mabe">
+</div>
+
+<h3>Mabe</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'MABE',
+'1946',
+'México',
+'Egon Mabardi y Francisco Berrondo',
+'Mabe ha modernizado su logotipo manteniendo el nombre de la empresa como principal elemento de identificación. Su imagen busca ser sencilla y fácil de reconocer en sus productos.',
+'La identidad se construye principalmente mediante la palabra mabe, utilizando una tipografía de formas suaves y una apariencia moderna.',
+'Azul y blanco.',
+'Comunica hogar, confianza, funcionalidad, sencillez y tecnología.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- ELECTROLUX -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/electrolux.png" alt="Electrolux">
+</div>
+
+<h3>Electrolux</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'ELECTROLUX',
+'1919',
+'Suecia',
+'La compañía surgió de la unión de Elektromekaniska y Lux, impulsada por Axel Wenner-Gren',
+'Electrolux ha utilizado diferentes símbolos a lo largo de su historia. Su identidad contemporánea utiliza un símbolo geométrico abstracto acompañado por el nombre de la empresa.',
+'La identidad combina un símbolo geométrico de formas limpias con una tipografía sencilla y moderna.',
+'Negro y blanco principalmente.',
+'Comunica diseño, tecnología, elegancia, funcionalidad y calidad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- BOSCH -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/bosch.png" alt="Bosch">
+</div>
+
+<h3>Bosch</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BOSCH',
+'1886',
+'Alemania',
+'Robert Bosch',
+'Bosch desarrolló uno de sus símbolos históricos a partir de la representación de un inducido magnético. El símbolo circular ha acompañado a la marca durante décadas y se ha simplificado con el tiempo.',
+'La identidad combina el símbolo circular de Bosch con el nombre de la empresa en una tipografía fuerte y fácilmente reconocible.',
+'Rojo, gris, negro y blanco.',
+'Comunica ingeniería, precisión, tecnología, confianza y calidad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- OSTER -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/oster.png" alt="Oster">
+</div>
+
+<h3>Oster</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'OSTER',
+'1924',
+'Estados Unidos',
+'John Oster',
+'Oster ha desarrollado una identidad principalmente tipográfica que ha sido actualizada con el paso de los años. El nombre de la marca continúa siendo su principal elemento visual.',
+'La identidad utiliza el nombre Oster con una tipografía clara y reconocible, aplicada de manera constante en pequeños electrodomésticos.',
+'Rojo, blanco y negro.',
+'Comunica practicidad, hogar, confianza, tradición y funcionalidad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- BLACK+DECKER -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/blackdecker.png" alt="Black+Decker">
+</div>
+
+<h3>Black+Decker</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'BLACK+DECKER',
+'1910',
+'Estados Unidos',
+'S. Duncan Black y Alonzo G. Decker',
+'Black+Decker ha simplificado su identidad visual a través del tiempo. En su imagen contemporánea destaca el nombre de la marca acompañado por el signo + entre las dos palabras.',
+'La identidad se construye mediante una tipografía fuerte y geométrica. El signo + funciona como un elemento característico de la marca.',
+'Naranja, negro y blanco.',
+'Comunica resistencia, practicidad, trabajo, funcionalidad y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- KITCHENAID -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/kitchenaid.png" alt="KitchenAid">
+</div>
+
+<h3>KitchenAid</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'KITCHENAID',
+'1919',
+'Estados Unidos',
+'Herbert Johnston está vinculado al desarrollo de su primera batidora para el hogar',
+'KitchenAid ha mantenido una identidad elegante y principalmente tipográfica. Su nombre se relaciona fuertemente con el diseño característico de sus batidoras y productos de cocina.',
+'La identidad utiliza el nombre KitchenAid mediante una tipografía sólida y sencilla, complementada por el diseño reconocible de sus productos.',
+'Rojo, negro y blanco, además de diferentes colores aplicados a sus productos.',
+'Comunica calidad, cocina, creatividad, diseño, tradición y durabilidad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- PHILIPS -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/philips.png" alt="Philips">
+</div>
+
+<h3>Philips</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PHILIPS',
+'1891',
+'Países Bajos',
+'Gerard Philips y Frederik Philips',
+'Philips ha utilizado diferentes elementos visuales durante su historia, incluyendo estrellas y ondas. Su identidad moderna destaca principalmente el nombre PHILIPS con una tipografía clara.',
+'La identidad se construye alrededor del nombre Philips y, en determinadas aplicaciones, utiliza su histórico símbolo de estrellas y ondas.',
+'Azul y blanco.',
+'Comunica tecnología, innovación, bienestar, confianza y experiencia.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- TEKA -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/teka.png" alt="Teka">
+</div>
+
+<h3>Teka</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'TEKA',
+'1924',
+'Alemania',
+'Karl Thielmann; posteriormente Helmut Klein se incorporó al desarrollo de la compañía',
+'Teka ha modernizado su identidad manteniendo una construcción principalmente tipográfica. Su nombre corto facilita una aplicación sencilla en electrodomésticos y productos de cocina.',
+'La identidad utiliza el nombre TEKA como principal elemento visual mediante una tipografía sencilla, limpia y fácilmente identificable.',
+'Rojo, negro y blanco.',
+'Comunica diseño, cocina, funcionalidad, tecnología y calidad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+document.getElementById("modalAnio").innerText = anio;
+document.getElementById("modalOrigen").innerText = origen;
+document.getElementById("modalFundadores").innerText = fundadores;
+document.getElementById("modalEvolucion").innerText = evolucion;
+document.getElementById("modalIdentidad").innerText = identidad;
+document.getElementById("modalColores").innerText = colores;
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+/* CERRAR AL HACER CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

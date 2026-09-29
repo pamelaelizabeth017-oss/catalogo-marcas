@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Cuidado personal</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10,25,40,0.72);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+    border-top: 5px solid #D9B44A;
+}
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #777777;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #606060;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+.cerrar {
+    display: block;
+    margin: 25px auto 0 auto;
+    padding: 11px 30px;
+    background-color: #16324F;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+<h1>CUIDADO PERSONAL</h1>
+<div class="linea"></div>
+<p>Identidad visual de marcas reconocidas del sector de cuidado personal.</p>
+</div>
+
+<div class="marcas">
+
+
+<!-- DOVE -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/dove.png" alt="Dove">
+</div>
+
+<h3>Dove</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'DOVE',
+'1957',
+'Estados Unidos',
+'Marca desarrollada por Unilever',
+'Dove ha mantenido durante gran parte de su historia la figura de una paloma como símbolo principal. El logotipo ha sido modernizado mediante formas más suaves y elegantes.',
+'La identidad combina el nombre Dove con la silueta de una paloma, creando una imagen relacionada con suavidad, limpieza y cuidado.',
+'Azul, blanco y dorado.',
+'Comunica suavidad, cuidado, confianza, bienestar y belleza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- NIVEA -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/nivea.png" alt="Nivea">
+</div>
+
+<h3>Nivea</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'NIVEA',
+'1911',
+'Alemania',
+'Beiersdorf; desarrollo vinculado a Oscar Troplowitz, Isaac Lifschütz y Paul Gerson Unna',
+'Nivea ha evolucionado manteniendo una identidad sencilla. El círculo azul con el nombre NIVEA en blanco se convirtió en uno de sus elementos más reconocibles.',
+'La identidad utiliza un círculo azul y una tipografía blanca fuerte, inspirándose también en la apariencia de sus tradicionales envases.',
+'Azul y blanco.',
+'Comunica confianza, limpieza, cuidado, tradición y protección de la piel.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- COLGATE -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/colgate.png" alt="Colgate">
+</div>
+
+<h3>Colgate</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'COLGATE',
+'1873 como producto dental',
+'Estados Unidos',
+'La empresa original fue fundada por William Colgate',
+'Colgate ha mantenido durante décadas una fuerte relación con el color rojo. Su logotipo evolucionó hacia una construcción tipográfica sencilla y de alta visibilidad.',
+'La identidad se construye principalmente mediante el nombre Colgate en blanco sobre rojo, acompañado en algunas versiones por una curva que recuerda una sonrisa.',
+'Rojo y blanco.',
+'Comunica higiene, salud bucal, confianza, limpieza y frescura.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- ORAL-B -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/oralb.png" alt="Oral-B">
+</div>
+
+<h3>Oral-B</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'ORAL-B',
+'1950',
+'Estados Unidos',
+'Robert W. Hutson',
+'Oral-B ha mantenido una identidad relacionada con el sector odontológico. Su logotipo se ha simplificado conservando el nombre dentro de una forma azul.',
+'La identidad combina el nombre Oral-B en blanco con una forma ovalada azul, generando una apariencia limpia y profesional.',
+'Azul y blanco.',
+'Comunica higiene, salud, limpieza, confianza y cuidado dental.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- REXONA -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/rexona.png" alt="Rexona">
+</div>
+
+<h3>Rexona</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'REXONA',
+'1908',
+'Australia',
+'Alice Sheffer y Samuel Fuller Sheffer',
+'Rexona ha modificado su identidad varias veces. En sus versiones modernas destaca un símbolo similar a una marca de verificación que refuerza la idea de protección y eficacia.',
+'La identidad combina el nombre Rexona con un símbolo dinámico y sencillo relacionado visualmente con seguridad y movimiento.',
+'Azul, blanco y negro, con variaciones según el producto.',
+'Comunica protección, movimiento, confianza, frescura y seguridad.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- GILLETTE -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/gillette.png" alt="Gillette">
+</div>
+
+<h3>Gillette</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'GILLETTE',
+'1901',
+'Estados Unidos',
+'King C. Gillette',
+'Gillette ha utilizado diferentes versiones tipográficas durante su historia. Su identidad actual mantiene letras inclinadas y detalles gráficos que sugieren precisión y corte.',
+'La identidad se construye principalmente mediante el nombre Gillette con una tipografía fuerte, inclinada y reconocible.',
+'Azul, blanco y negro.',
+'Comunica precisión, cuidado, tecnología, rendimiento y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- PANTENE -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/pantene.png" alt="Pantene">
+</div>
+
+<h3>Pantene</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'PANTENE',
+'1945',
+'Suiza',
+'Marca desarrollada originalmente por Hoffmann-La Roche',
+'Pantene ha evolucionado mediante diferentes estilos tipográficos y símbolos. Su identidad se caracteriza por una apariencia elegante relacionada con el cuidado del cabello.',
+'La identidad utiliza principalmente el nombre Pantene acompañado por elementos gráficos delicados y una presentación visual limpia.',
+'Dorado, negro y blanco.',
+'Comunica belleza, brillo, cuidado, elegancia y salud del cabello.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- HEAD & SHOULDERS -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/headshoulders.png" alt="Head & Shoulders">
+</div>
+
+<h3>Head & Shoulders</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'HEAD & SHOULDERS',
+'1961',
+'Estados Unidos',
+'Marca desarrollada por Procter & Gamble',
+'Head & Shoulders ha modernizado su identidad utilizando formas suaves y un símbolo abstracto relacionado con las iniciales de la marca.',
+'La identidad combina el nombre Head & Shoulders con formas curvas y una estética limpia asociada con higiene y cuidado capilar.',
+'Azul y blanco.',
+'Comunica limpieza, frescura, cuidado del cuero cabelludo, confianza y protección.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- GARNIER -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/garnier.png" alt="Garnier">
+</div>
+
+<h3>Garnier</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'GARNIER',
+'1904',
+'Francia',
+'Alfred Amour Garnier',
+'Garnier ha actualizado su identidad manteniendo una relación visual con la naturaleza. En diferentes versiones ha utilizado elementos circulares, hojas y tonos verdes.',
+'La identidad combina el nombre Garnier con recursos visuales relacionados con ingredientes naturales, plantas y cuidado personal.',
+'Verde, blanco y negro.',
+'Comunica naturaleza, frescura, belleza, cuidado y bienestar.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- NEUTROGENA -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/neutrogena.png" alt="Neutrogena">
+</div>
+
+<h3>Neutrogena</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'NEUTROGENA',
+'1930 como empresa; nombre Neutrogena adoptado posteriormente',
+'Estados Unidos',
+'Emanuel Stolaroff',
+'Neutrogena ha mantenido una identidad visual sobria y principalmente tipográfica. El nombre se presenta de forma sencilla para reforzar una imagen relacionada con el cuidado dermatológico.',
+'La identidad se construye principalmente mediante el nombre Neutrogena, utilizando una tipografía limpia y una presentación visual minimalista.',
+'Negro, blanco y azul en distintas aplicaciones.',
+'Comunica limpieza, cuidado de la piel, confianza, sencillez y una imagen dermatológica.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+document.getElementById("modalAnio").innerText = anio;
+document.getElementById("modalOrigen").innerText = origen;
+document.getElementById("modalFundadores").innerText = fundadores;
+document.getElementById("modalEvolucion").innerText = evolucion;
+document.getElementById("modalIdentidad").innerText = identidad;
+document.getElementById("modalColores").innerText = colores;
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+/* CERRAR AL HACER CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

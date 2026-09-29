@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Aerolíneas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10,25,40,0.72);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+    border-top: 5px solid #D9B44A;
+}
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #777777;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #606060;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+.cerrar {
+    display: block;
+    margin: 25px auto 0 auto;
+    padding: 11px 30px;
+    background-color: #16324F;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+<h1>AEROLÍNEAS</h1>
+<div class="linea"></div>
+<p>Identidad visual de marcas reconocidas del sector de aerolíneas.</p>
+</div>
+
+<div class="marcas">
+
+
+<!-- AVIANCA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/avianca.png" alt="Avianca">
+</div>
+
+<h3>Avianca</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'AVIANCA',
+'1919',
+'Colombia',
+'Fundada originalmente como SCADTA por empresarios colombianos y alemanes',
+'Avianca ha cambiado su identidad varias veces durante su extensa historia. Sus logotipos han evolucionado desde símbolos relacionados con aves y vuelo hasta una identidad más sencilla y contemporánea.',
+'La identidad se construye principalmente mediante el nombre avianca y elementos gráficos relacionados con movimiento, conexión y vuelo.',
+'Rojo y blanco.',
+'Comunica trayectoria, conexión, movimiento, cercanía y experiencia en el transporte aéreo.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- LATAM -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/latam.png" alt="LATAM Airlines">
+</div>
+
+<h3>LATAM Airlines</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'LATAM AIRLINES',
+'2012 como grupo; marca LATAM presentada posteriormente',
+'América Latina',
+'Resultado de la asociación entre LAN Airlines y TAM Airlines',
+'La identidad LATAM nació de la unión de LAN y TAM. Se creó una nueva marca con un símbolo formado por líneas curvas que representan movimiento, conexión y la región latinoamericana.',
+'La identidad combina el nombre LATAM con un símbolo abstracto de formas curvas y dinámicas.',
+'Azul, morado, rojo, rosa y blanco.',
+'Comunica conexión latinoamericana, movimiento, modernidad, diversidad y viajes.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- AMERICAN AIRLINES -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/americanairlines.png" alt="American Airlines">
+</div>
+
+<h3>American Airlines</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'AMERICAN AIRLINES',
+'1930',
+'Estados Unidos',
+'Formada mediante la unión de varias compañías aéreas estadounidenses',
+'Durante décadas American Airlines utilizó un símbolo relacionado con un águila. Su identidad actual simplificó esta referencia mediante una figura abstracta formada por colores rojo, azul y blanco.',
+'La identidad combina el nombre American Airlines con un símbolo que puede interpretarse como un águila, un ala o una figura relacionada con el vuelo.',
+'Rojo, azul, blanco y gris.',
+'Comunica movimiento, presencia internacional, aviación y conexión.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- DELTA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/delta.png" alt="Delta Air Lines">
+</div>
+
+<h3>Delta Air Lines</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'DELTA AIR LINES',
+'1925',
+'Estados Unidos',
+'La empresa surgió originalmente como Huff Daland Dusters',
+'Delta ha utilizado durante décadas un símbolo triangular conocido como Widget. Este elemento ha sido simplificado y modernizado manteniendo su forma geométrica característica.',
+'La identidad combina el nombre Delta con un símbolo triangular que genera una sensación de dirección, estabilidad y movimiento.',
+'Rojo, azul y blanco.',
+'Comunica seguridad, dirección, movimiento, profesionalismo y conexión.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- UNITED -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/united.png" alt="United Airlines">
+</div>
+
+<h3>United Airlines</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'UNITED AIRLINES',
+'1926',
+'Estados Unidos',
+'La compañía se desarrolló a partir de varias empresas vinculadas a la aviación estadounidense',
+'United ha utilizado diferentes símbolos durante su historia. Después de su integración con Continental Airlines adoptó un globo formado por líneas como elemento principal de su identidad.',
+'La identidad combina el nombre United con un símbolo de globo, representando conexiones y presencia internacional.',
+'Azul y blanco.',
+'Comunica conexión global, viajes, confianza, alcance internacional y movilidad.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- EMIRATES -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/emirates.png" alt="Emirates">
+</div>
+
+<h3>Emirates</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'EMIRATES',
+'1985',
+'Emiratos Árabes Unidos',
+'Creada por el gobierno de Dubái a través de su estructura de aviación',
+'Emirates ha mantenido una identidad elegante y reconocible basada en el nombre de la aerolínea acompañado por caligrafía árabe.',
+'La identidad combina escritura árabe con el nombre Emirates en caracteres latinos, creando una relación directa con su origen cultural.',
+'Rojo y blanco.',
+'Comunica elegancia, lujo, cultura, viajes internacionales y calidad.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- IBERIA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/iberia.png" alt="Iberia">
+</div>
+
+<h3>Iberia</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'IBERIA',
+'1927',
+'España',
+'Fundada por Horacio Echevarrieta y Deutsche Luft Hansa',
+'Iberia ha actualizado su identidad en distintas etapas manteniendo una fuerte relación con los colores de España. Su rediseño contemporáneo utiliza formas más simples y dinámicas.',
+'La identidad combina el nombre Iberia con formas curvas y colores cálidos relacionados con su origen español.',
+'Rojo, amarillo y blanco.',
+'Comunica movimiento, identidad española, cercanía, viajes y conexión.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- AIR FRANCE -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/airfrance.png" alt="Air France">
+</div>
+
+<h3>Air France</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'AIR FRANCE',
+'1933',
+'Francia',
+'Formada mediante la unión de varias compañías aéreas francesas',
+'Air France ha modernizado progresivamente su identidad manteniendo el nombre como elemento central. Sus versiones actuales utilizan una tipografía limpia acompañada por un pequeño elemento rojo.',
+'La identidad se construye mediante el nombre AIRFRANCE y un símbolo gráfico sencillo relacionado con movimiento y elegancia.',
+'Azul, rojo y blanco.',
+'Comunica elegancia, identidad francesa, confianza, experiencia y viajes internacionales.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- LUFTHANSA -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/lufthansa.png" alt="Lufthansa">
+</div>
+
+<h3>Lufthansa</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'LUFTHANSA',
+'1953 como compañía actual',
+'Alemania',
+'La compañía actual retomó posteriormente el nombre histórico Lufthansa',
+'Uno de los elementos más reconocibles de Lufthansa es la grulla estilizada dentro de un círculo. El símbolo tiene antecedentes históricos anteriores a la compañía actual y se ha simplificado con el tiempo.',
+'La identidad combina una grulla estilizada dentro de un círculo con el nombre Lufthansa.',
+'Azul, blanco y amarillo como color histórico complementario.',
+'Comunica precisión, confianza, tradición, movimiento y profesionalismo.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+<!-- QATAR -->
+
+<div class="tarjeta">
+
+<div class="logo">
+<img src="imagenes/qatar.png" alt="Qatar Airways">
+</div>
+
+<h3>Qatar Airways</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'QATAR AIRWAYS',
+'1993',
+'Qatar',
+'Fundada como aerolínea nacional de Qatar',
+'Qatar Airways utiliza como símbolo principal un oryx, animal asociado con Qatar y la región. La identidad ha sido refinada manteniendo este elemento como símbolo central.',
+'La identidad combina la representación de un oryx con el nombre Qatar Airways en inglés y escritura árabe.',
+'Borgoña, gris y blanco.',
+'Comunica elegancia, identidad cultural, calidad, viajes internacionales y exclusividad.'
+)">
+CONOCER +
+</button>
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+document.getElementById("modalAnio").innerText = anio;
+document.getElementById("modalOrigen").innerText = origen;
+document.getElementById("modalFundadores").innerText = fundadores;
+document.getElementById("modalEvolucion").innerText = evolucion;
+document.getElementById("modalIdentidad").innerText = identidad;
+document.getElementById("modalColores").innerText = colores;
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+/* CERRAR AL HACER CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

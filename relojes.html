@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Relojes</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16324F;
+}
+
+.contenedor {
+    width: 94%;
+    margin: auto;
+    padding: 35px 20px 60px 20px;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #16324F;
+}
+
+.linea {
+    width: 55px;
+    height: 3px;
+    background-color: #D9B44A;
+    margin: 13px auto;
+}
+
+.encabezado p {
+    color: #777777;
+    font-size: 14px;
+}
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 15px rgba(22,50,79,0.08);
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(22,50,79,0.16);
+    border-bottom: 3px solid #D9B44A;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 130px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.tarjeta h3 {
+    margin: 8px 0;
+    color: #16324F;
+    font-size: 16px;
+}
+
+.boton {
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 8px;
+}
+
+.boton:hover {
+    color: #16324F;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10,25,40,0.72);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 600px;
+    max-width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 35px 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+    border-top: 5px solid #D9B44A;
+}
+
+.x-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: #777777;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.x-cerrar:hover {
+    color: #D9B44A;
+}
+
+.modal-contenido h2 {
+    text-align: center;
+    color: #16324F;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #999999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.ficha {
+    text-align: left;
+}
+
+.fila {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #606060;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.fila:last-child {
+    border-bottom: none;
+}
+
+.fila strong {
+    color: #16324F;
+}
+
+.cerrar {
+    display: block;
+    margin: 25px auto 0 auto;
+    padding: 11px 30px;
+    background-color: #16324F;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.cerrar:hover {
+    background-color: #D9B44A;
+    color: #16324F;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="encabezado">
+<h1>RELOJES</h1>
+<div class="linea"></div>
+<p>Identidad visual de marcas reconocidas del sector de relojes.</p>
+</div>
+
+<div class="marcas">
+
+
+<!-- ROLEX -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/rolex.png" alt="Rolex">
+</div>
+
+<h3>Rolex</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'ROLEX',
+'1905',
+'Reino Unido / Suiza',
+'Hans Wilsdorf y Alfred Davis',
+'Rolex ha mantenido una identidad muy estable. Su símbolo más reconocido es una corona de cinco puntas ubicada sobre el nombre de la marca.',
+'La identidad combina la corona con el nombre ROLEX en una tipografía elegante y clásica.',
+'Verde, dorado y blanco.',
+'Comunica lujo, prestigio, precisión, exclusividad y tradición.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- CASIO -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/casio.png" alt="Casio">
+</div>
+
+<h3>Casio</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'CASIO',
+'1946',
+'Japón',
+'Tadao Kashio',
+'Casio ha mantenido una identidad principalmente tipográfica. Su logotipo utiliza letras mayúsculas sencillas que permiten una fácil aplicación en relojes y productos electrónicos.',
+'La identidad se construye principalmente mediante el nombre CASIO con una tipografía fuerte y sencilla.',
+'Azul y blanco.',
+'Comunica tecnología, funcionalidad, precisión, resistencia y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- OMEGA -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/omega.png" alt="Omega">
+</div>
+
+<h3>Omega</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'OMEGA',
+'1848',
+'Suiza',
+'Louis Brandt',
+'Omega utiliza como principal símbolo la letra griega Omega. Este elemento se ha mantenido durante gran parte de su historia y se relaciona directamente con el nombre de la marca.',
+'La identidad combina el símbolo Ω con el nombre OMEGA mediante una composición elegante y sencilla.',
+'Rojo, blanco, negro y tonos metálicos.',
+'Comunica precisión, lujo, innovación, tradición y excelencia.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- TISSOT -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/tissot.png" alt="Tissot">
+</div>
+
+<h3>Tissot</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'TISSOT',
+'1853',
+'Suiza',
+'Charles-Félicien Tissot y Charles-Émile Tissot',
+'Tissot ha modernizado su identidad manteniendo el nombre como elemento central. La cruz suiza también aparece como una referencia directa a su origen.',
+'La identidad combina el nombre TISSOT con un símbolo que incorpora la cruz suiza.',
+'Rojo, blanco y negro.',
+'Comunica precisión, tradición suiza, calidad, elegancia y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- SEIKO -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/seiko.png" alt="Seiko">
+</div>
+
+<h3>Seiko</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'SEIKO',
+'1881',
+'Japón',
+'Kintaro Hattori',
+'Seiko ha mantenido una identidad sobria y principalmente tipográfica. El nombre de la marca aparece de manera destacada en sus relojes y comunicaciones.',
+'La identidad se construye mediante el nombre SEIKO en letras mayúsculas con una composición sencilla y profesional.',
+'Negro, blanco y tonos metálicos.',
+'Comunica precisión, tecnología, innovación, calidad y tradición japonesa.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- CITIZEN -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/citizen.png" alt="Citizen">
+</div>
+
+<h3>Citizen</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'CITIZEN',
+'1918',
+'Japón',
+'La empresa surgió del Shokosha Watch Research Institute',
+'Citizen ha desarrollado una identidad principalmente tipográfica. Su nombre corto y directo facilita la aplicación del logotipo en relojes y diferentes medios.',
+'La identidad utiliza la palabra CITIZEN en letras mayúsculas mediante una composición limpia y funcional.',
+'Negro, blanco y azul en diferentes aplicaciones.',
+'Comunica precisión, tecnología, accesibilidad, innovación y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- SWATCH -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/swatch.png" alt="Swatch">
+</div>
+
+<h3>Swatch</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'SWATCH',
+'1983',
+'Suiza',
+'Desarrollada dentro de SMH, grupo dirigido por Nicolas Hayek',
+'Swatch desarrolló una identidad juvenil y colorida. Su logotipo combina el nombre de la marca con una pequeña bandera suiza.',
+'La identidad utiliza una tipografía sencilla acompañada por una cruz blanca sobre un cuadro rojo, relacionando la marca con su origen suizo.',
+'Rojo, blanco y negro, además de múltiples colores en sus productos.',
+'Comunica creatividad, juventud, diseño, diversión e identidad suiza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- TAG HEUER -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/tagheuer.png" alt="TAG Heuer">
+</div>
+
+<h3>TAG Heuer</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'TAG HEUER',
+'1860',
+'Suiza',
+'Edouard Heuer',
+'La identidad de TAG Heuer evolucionó a partir de la histórica marca Heuer. Posteriormente se incorporó TAG y se desarrolló el conocido símbolo con forma de escudo.',
+'La identidad combina el nombre TAG HEUER dentro de una figura similar a un escudo, creando una imagen fuerte y deportiva.',
+'Verde, rojo, blanco y negro.',
+'Comunica precisión, deporte, velocidad, lujo y rendimiento.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- FOSSIL -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/fossil.png" alt="Fossil">
+</div>
+
+<h3>Fossil</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'FOSSIL',
+'1984',
+'Estados Unidos',
+'Tom Kartsotis',
+'Fossil ha utilizado diferentes estilos visuales inspirados en una estética clásica y vintage. Su identidad actual utiliza principalmente el nombre de la marca.',
+'La identidad se construye alrededor de la palabra FOSSIL mediante una tipografía limpia y adaptable.',
+'Negro y blanco principalmente.',
+'Comunica estilo, moda, diseño, sencillez y una estética contemporánea con referencias clásicas.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+<!-- TIMEX -->
+
+<div class="tarjeta">
+<div class="logo">
+<img src="imagenes/timex.png" alt="Timex">
+</div>
+
+<h3>Timex</h3>
+
+<button class="boton"
+onclick="abrirModal(
+'TIMEX',
+'1854 como Waterbury Clock Company; nombre Timex adoptado posteriormente',
+'Estados Unidos',
+'La empresa surgió en Waterbury, Connecticut',
+'Timex ha evolucionado desde una histórica empresa relojera estadounidense hasta una marca internacional. Su identidad moderna se basa principalmente en un logotipo tipográfico.',
+'La identidad utiliza el nombre TIMEX mediante letras mayúsculas sencillas y fácilmente reconocibles.',
+'Azul, blanco y negro.',
+'Comunica durabilidad, funcionalidad, tradición, accesibilidad y confianza.'
+)">
+CONOCER +
+</button>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modal">
+
+<div class="modal-contenido">
+
+<button class="x-cerrar" onclick="cerrarModal()">×</button>
+
+<h2 id="modalTitulo"></h2>
+
+<div class="linea"></div>
+
+<div class="subtitulo">
+FICHA DE IDENTIDAD CORPORATIVA
+</div>
+
+<div class="ficha">
+
+<div class="fila">
+<strong>Año de creación:</strong>
+<span id="modalAnio"></span>
+</div>
+
+<div class="fila">
+<strong>Origen:</strong>
+<span id="modalOrigen"></span>
+</div>
+
+<div class="fila">
+<strong>Fundador(es):</strong>
+<span id="modalFundadores"></span>
+</div>
+
+<div class="fila">
+<strong>Evolución del logo:</strong><br>
+<span id="modalEvolucion"></span>
+</div>
+
+<div class="fila">
+<strong>Construcción de la identidad visual:</strong><br>
+<span id="modalIdentidad"></span>
+</div>
+
+<div class="fila">
+<strong>Colores principales:</strong><br>
+<span id="modalColores"></span>
+</div>
+
+<div class="fila">
+<strong>¿Qué comunica?</strong><br>
+<span id="modalConcepto"></span>
+</div>
+
+</div>
+
+<button class="cerrar" onclick="cerrarModal()">
+CERRAR
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+function abrirModal(
+titulo,
+anio,
+origen,
+fundadores,
+evolucion,
+identidad,
+colores,
+concepto
+) {
+
+document.getElementById("modalTitulo").innerText = titulo;
+document.getElementById("modalAnio").innerText = anio;
+document.getElementById("modalOrigen").innerText = origen;
+document.getElementById("modalFundadores").innerText = fundadores;
+document.getElementById("modalEvolucion").innerText = evolucion;
+document.getElementById("modalIdentidad").innerText = identidad;
+document.getElementById("modalColores").innerText = colores;
+document.getElementById("modalConcepto").innerText = concepto;
+
+document.getElementById("modal").style.display = "flex";
+
+}
+
+function cerrarModal() {
+
+document.getElementById("modal").style.display = "none";
+
+}
+
+/* CERRAR AL HACER CLICK FUERA */
+
+window.onclick = function(event) {
+
+var modal = document.getElementById("modal");
+
+if (event.target == modal) {
+
+cerrarModal();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
